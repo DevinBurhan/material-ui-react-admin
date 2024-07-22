@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import { useMemo, useState, forwardRef, useContext, useCallback, createContext } from 'react';
+import { createContext, forwardRef, useCallback, useContext, useMemo, useState } from 'react';
 
 import { Slide } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
@@ -58,8 +57,6 @@ export const SnackbarProvider = ({ children }) => {
     </SnackbarContext.Provider>
   );
 };
-SnackbarProvider.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-};
+
 
 export const useSnackbar = () => useContext(SnackbarContext);

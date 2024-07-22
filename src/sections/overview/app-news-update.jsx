@@ -1,13 +1,12 @@
-import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
+import Divider from '@mui/material/Divider';
+import Link from '@mui/material/Link';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 
 import { fToNow } from 'src/utils/format-time';
 
@@ -44,11 +43,7 @@ export default function AppNewsUpdate({ title, subheader, list, ...other }) {
   );
 }
 
-AppNewsUpdate.propTypes = {
-  title: PropTypes.string,
-  subheader: PropTypes.string,
-  list: PropTypes.array.isRequired,
-};
+
 
 // ----------------------------------------------------------------------
 
@@ -81,11 +76,4 @@ function NewsItem({ news }) {
   );
 }
 
-NewsItem.propTypes = {
-  news: PropTypes.shape({
-    image: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
-    postedAt: PropTypes.instanceOf(Date),
-  }),
-};
+

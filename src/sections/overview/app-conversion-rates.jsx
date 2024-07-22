@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -57,8 +56,4 @@ export default function AppConversionRates({ title, subheader, chart, ...other }
   );
 }
 
-AppConversionRates.propTypes = {
-  chart: PropTypes.object,
-  subheader: PropTypes.string,
-  title: PropTypes.string,
-};
+

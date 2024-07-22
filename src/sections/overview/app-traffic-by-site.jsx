@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import CardHeader from '@mui/material/CardHeader';
 
 import { fShortenNumber } from 'src/utils/format-number';
 
@@ -43,8 +42,3 @@ export default function AppTrafficBySite({ title, subheader, list, ...other }) {
   );
 }
 
-AppTrafficBySite.propTypes = {
-  title: PropTypes.string,
-  subheader: PropTypes.string,
-  list: PropTypes.array.isRequired,
-};

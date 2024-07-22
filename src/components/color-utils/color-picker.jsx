@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
 import { forwardRef, useCallback } from 'react';
 
+import ButtonBase from '@mui/material/ButtonBase';
 import Stack from '@mui/material/Stack';
 import { alpha } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
 
 import Iconify from '../iconify';
 
@@ -100,12 +99,6 @@ const ColorPicker = forwardRef(
   }
 );
 
-ColorPicker.propTypes = {
-  colors: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-  limit: PropTypes.number,
-  onSelectColor: PropTypes.func,
-  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-  sx: PropTypes.object,
-};
+
 
 export default ColorPicker;

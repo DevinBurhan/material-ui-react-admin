@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { useState } from 'react';
 
 const TanstackProvider = ({ children }) => {
   const [queryClient] = useState(
@@ -27,6 +26,3 @@ const TanstackProvider = ({ children }) => {
 };
 
 export default TanstackProvider;
-TanstackProvider.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.object]),
-};

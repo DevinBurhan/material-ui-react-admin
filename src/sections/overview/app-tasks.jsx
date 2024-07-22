@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 
 import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import Popover from '@mui/material/Popover';
-import MenuItem from '@mui/material/MenuItem';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
 import CardHeader from '@mui/material/CardHeader';
+import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import IconButton from '@mui/material/IconButton';
+import MenuItem from '@mui/material/MenuItem';
+import Popover from '@mui/material/Popover';
+import Stack from '@mui/material/Stack';
 
 import Iconify from 'src/components/iconify';
 
@@ -41,11 +40,7 @@ export default function AnalyticsTasks({ title, subheader, list, ...other }) {
   );
 }
 
-AnalyticsTasks.propTypes = {
-  list: PropTypes.array,
-  subheader: PropTypes.string,
-  title: PropTypes.string,
-};
+
 
 // ----------------------------------------------------------------------
 
@@ -140,8 +135,3 @@ function TaskItem({ task, checked, onChange }) {
   );
 }
 
-TaskItem.propTypes = {
-  checked: PropTypes.bool,
-  onChange: PropTypes.func,
-  task: PropTypes.object,
-};

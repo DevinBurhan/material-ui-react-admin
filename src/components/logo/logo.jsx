@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
 import Box from '@mui/material/Box';
@@ -87,9 +86,5 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
   );
 });
 
-Logo.propTypes = {
-  disabledLink: PropTypes.bool,
-  sx: PropTypes.object,
-};
 
 export default Logo;

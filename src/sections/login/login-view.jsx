@@ -1,25 +1,22 @@
 import Cookies from 'js-cookie';
 import { useState } from 'react';
 
+import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
+import { alpha, useTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import LoadingButton from '@mui/lab/LoadingButton';
-import { alpha, useTheme } from '@mui/material/styles';
-import InputAdornment from '@mui/material/InputAdornment';
-
 import { useRouter } from 'src/routes/hooks';
-
-import { bgGradient } from 'src/theme/css';
 import { useSnackbar } from 'src/lib/SnackbarContext';
 import { useLoginApi } from 'src/state/auth/auth.hook';
-
-import Logo from 'src/components/logo';
+import { bgGradient } from 'src/theme/css';
 import Iconify from 'src/components/iconify';
+import Logo from 'src/components/logo';
 
 // ----------------------------------------------------------------------
 
@@ -38,6 +35,8 @@ export default function LoginView() {
       showSnackbar({ message: data.message, severity: 'success' });
       router.push('/');
       Cookies.set('isLogin', true);
+    }else{
+      showSnackbar({ message: 'Email and password dont match', severity: 'error' });
     }
   };
 

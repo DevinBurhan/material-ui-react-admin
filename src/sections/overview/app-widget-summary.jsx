@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -36,10 +35,4 @@ export default function AppWidgetSummary({ title, total, icon, color = 'primary'
   );
 }
 
-AppWidgetSummary.propTypes = {
-  color: PropTypes.string,
-  icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  sx: PropTypes.object,
-  title: PropTypes.string,
-  total: PropTypes.number,
-};
+

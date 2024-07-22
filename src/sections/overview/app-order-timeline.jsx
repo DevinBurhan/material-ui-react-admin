@@ -1,14 +1,13 @@
-import PropTypes from 'prop-types';
 
-import Card from '@mui/material/Card';
 import Timeline from '@mui/lab/Timeline';
-import TimelineDot from '@mui/lab/TimelineDot';
-import Typography from '@mui/material/Typography';
-import CardHeader from '@mui/material/CardHeader';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
+import TimelineContent from '@mui/lab/TimelineContent';
+import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineItem, { timelineItemClasses } from '@mui/lab/TimelineItem';
+import TimelineSeparator from '@mui/lab/TimelineSeparator';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import Typography from '@mui/material/Typography';
 
 import { fDateTime } from 'src/utils/format-time';
 
@@ -37,11 +36,7 @@ export default function AnalyticsOrderTimeline({ title, subheader, list, ...othe
   );
 }
 
-AnalyticsOrderTimeline.propTypes = {
-  list: PropTypes.array,
-  subheader: PropTypes.string,
-  title: PropTypes.string,
-};
+
 
 // ----------------------------------------------------------------------
 
@@ -73,7 +68,4 @@ function OrderItem({ item, lastTimeline }) {
   );
 }
 
-OrderItem.propTypes = {
-  item: PropTypes.object,
-  lastTimeline: PropTypes.bool,
-};
+
