@@ -42,8 +42,6 @@ export default function AccountPopover() {
   };
 
   const handleClose = () => {
-    Cookies.remove('isLogin');
-    router.push('/login');
     setOpen(null);
   };
 
@@ -111,7 +109,10 @@ export default function AccountPopover() {
         <MenuItem
           disableRipple
           disableTouchRipple
-          onClick={handleClose}
+          onClick={() => {
+            router.push('/');
+            Cookies.remove('isLogin');
+          }}
           sx={{ typography: 'body2', color: 'error.main', py: 1.5 }}
         >
           Logout
