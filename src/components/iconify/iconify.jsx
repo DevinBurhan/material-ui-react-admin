@@ -16,6 +16,4 @@ const Iconify = forwardRef(({ icon, width = 20, sx, ...other }, ref) => (
   />
 ));
 
-
-
 export default Iconify;

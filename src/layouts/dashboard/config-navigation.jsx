@@ -12,6 +12,33 @@ const navConfig = [
     path: '/',
     icon: icon('ic_analytics'),
   },
+  {
+    title: 'management',
+    icon: icon('ic_analytics'),
+    children: [
+      {
+        title: 'users',
+        path: '/management/users',
+        icon: icon('ic_user'),
+      },
+      {
+        title: 'reports',
+        icon: icon('ic_blog'),
+        children: [
+          {
+            title: 'daily',
+            path: '/management/reports/daily',
+            icon: icon('ic_lock'),
+          },
+          {
+            title: 'monthly',
+            path: '/management/reports/monthly',
+            icon: icon('ic_lock'),
+          },
+        ],
+      },
+    ],
+  },
   // {
   //   title: 'user',
   //   path: '/user',

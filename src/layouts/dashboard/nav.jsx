@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -20,6 +20,9 @@ import Scrollbar from 'src/components/scrollbar';
 
 import { NAV } from './config-layout';
 import navConfig from './config-navigation';
+import { Collapse, IconButton } from '@mui/material';
+import Iconify from 'src/components/iconify';
+import { useLocation } from 'react-router-dom';
 
 // ----------------------------------------------------------------------
 
@@ -155,40 +158,75 @@ export default function Nav({ openNav, onCloseNav }) {
   );
 }
 
-
 // ----------------------------------------------------------------------
 
 function NavItem({ item }) {
+  const location = useLocation();
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   const active = item.path === pathname;
 
-  return (
-    <ListItemButton
-      component={RouterLink}
-      href={item.path}
-      sx={{
-        minHeight: 44,
-        borderRadius: 0.75,
-        typography: 'body2',
-        color: 'text.secondary',
-        textTransform: 'capitalize',
-        fontWeight: 'fontWeightMedium',
-        ...(active && {
-          color: 'primary.main',
-          fontWeight: 'fontWeightSemiBold',
-          bgcolor: (theme) => alpha(theme.palette.primary.main, 0.08),
-          '&:hover': {
-            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.16),
-          },
-        }),
-      }}
-    >
-      <Box component="span" sx={{ width: 24, height: 24, mr: 2 }}>
-        {item.icon}
-      </Box>
+  useEffect(() => {
+    if (item.children) {
+      const isActive = item.children.some(
+        (child) =>
+          child.path === location.pathname ||
+          (child.children && child.children.some((subChild) => subChild.path === location.pathname))
+      );
+      setOpen(isActive);
+    }
+  }, [location.pathname, item.children]);
 
-      <Box component="span">{item.title} </Box>
-    </ListItemButton>
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  return (
+    <>
+      <ListItemButton
+        component={RouterLink}
+        to={item.path || '#'}
+        sx={{
+          minHeight: 44,
+          borderRadius: 0.75,
+          typography: 'body2',
+          color: 'text.secondary',
+          textTransform: 'capitalize',
+          fontWeight: 'fontWeightMedium',
+          ...(active && {
+            color: 'primary.main',
+            fontWeight: 'fontWeightSemiBold',
+            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.08),
+            '&:hover': {
+              bgcolor: (theme) => alpha(theme.palette.primary.main, 0.16),
+            },
+          }),
+        }}
+        onClick={item.children ? handleClick : undefined}
+      >
+        <Box component="span" sx={{ width: 24, height: 24, mr: 2 }}>
+          {item.icon}
+        </Box>
+
+        <Box component="span">{item.title}</Box>
+
+        {item.children && (
+          <IconButton sx={{ ml: 'auto' }} onClick={handleClick}>
+            {open ? <Iconify icon="mdi:chevron-up" /> : <Iconify icon="mdi:chevron-down" />}
+          </IconButton>
+        )}
+      </ListItemButton>
+
+      {item.children && (
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <Box sx={{ pl: 4 }}>
+            {item.children.map((child) => (
+              <NavItem key={child.title} item={child} />
+            ))}
+          </Box>
+        </Collapse>
+      )}
+    </>
   );
 }
